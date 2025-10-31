@@ -15,22 +15,14 @@ function App() {
     };
   }, []);
 
-  const safeSet = (setter) => (...args) => {
-    if (mountedRef.current) setter(...args);
-  };
 
 
-  const [loading, _setLoading] = useState(false);
-  const [error, _setError] = useState("");
-  const [blockNumber, _setBlockNumber] = useState();
-  const [blockInfo, _setBlockInfo] = useState();
-  const [txs, _setTxs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [blockNumber, setBlockNumber] = useState();
+  const [blockInfo, setBlockInfo] = useState();
+  const [txs, setTxs] = useState([]);
 
-  const setLoading = safeSet(_setLoading);
-  const setError = safeSet(_setError);
-  const setBlockNumber = safeSet(_setBlockNumber);
-  const setBlockInfo = safeSet(_setBlockInfo);
-  const setTxs = safeSet(_setTxs);
 
 
   const getDt = useCallback(
@@ -54,12 +46,12 @@ function App() {
       } finally {
         setLoading(false);
       }
-    }, [setLoading, setError, setBlockNumber, setBlockInfo, setTxs])
+    },[])
 
 
   useEffect(() => {
     getDt();
-  });
+  }, [getDt]);
 
   // Stringify “safe” for BigInt
   const safeStringify = (obj) =>
@@ -217,7 +209,7 @@ function App() {
       </main>
 
       <footer className="max-w-5xl mx-auto px-4 py-10 text-center text-xs text-neutral-500">
-        Ethereum Block Explorer • Valentina Vittoria © 2025
+        Ethereum Block Explorer • <a className='hover:text-red-500' href='https://valentinavittoria.com/' target="_blank" rel="noreferrer">Valentina Vittoria</a> © 2025
       </footer>
 
     </div>
