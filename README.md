@@ -1,5 +1,7 @@
 #  Ethereum Block Explorer • Valentina Vittoria © 2025
 
+<img width="1434" height="677" alt="Screenshot 2025-10-31 alle 12 09 55" src="https://github.com/user-attachments/assets/dc98ad7d-0d83-4abd-83bb-c9ee3c55de89" />
+
 A minimal and elegant **Ethereum Block Explorer** built with **React** and **Alchemy SDK**, allowing you to fetch and display the latest Ethereum block data — including block details, gas info, and recent transactions — in real time.
 
 
